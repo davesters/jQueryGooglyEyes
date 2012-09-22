@@ -12,4 +12,5 @@ Slap some Googly Eyes on a single element, or give anything a class of googlyeye
 Simple as that.  There are some options available:
 
 **eye_size** - The pixel diameter of the eyes.
+
 **iris_size** - The pixel diameter of the iris.

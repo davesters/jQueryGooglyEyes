@@ -3,7 +3,7 @@
  * A jQuery plugin that adds a pair of Googly eyes to any element on your page.
  *
  * @author David Corona - http://www.lovesmesomecode.com
- * @version 1.0
+ * @version 1.1
  *
  * @examples
  * $('element').googlyEyes(options);
@@ -45,7 +45,8 @@
     var settings;
     var defaults = {
         eye_size: 30,
-        iris_size: 16
+        iris_size: 16,
+        spacing: 2
     }
 
     var methods = {
@@ -55,9 +56,10 @@
 
             return this.each(function() {
                 $(this).css("position", "relative");
-                var eyes = $("<div class='googlyeyes_container'><div class='googlyeyes_eye'><div class='googlyeyes_iris'></div></div><div class='googlyeyes_eye'><div class='googlyeyes_iris'></div></div></div>");
-                $(eyes).css({ zIndex: 9999, position: 'absolute', top: 0 - settings.eye_size, left: 0 - settings.eye_size, width: (settings.eye_size * 2) + 10 });
-                $(eyes).find(".googlyeyes_eye").css({ width: settings.eye_size,
+                var eyes = $("<div class='googlyeyes_container'><div class='googlyeyes_eye first'><div class='googlyeyes_iris'></div></div><div class='googlyeyes_eye'><div class='googlyeyes_iris'></div></div></div>");
+                $(eyes).css({ zIndex: 9999, position: 'absolute', top: 0 - settings.eye_size, left: 0 - settings.eye_size });
+                $(eyes).find(".googlyeyes_eye").css({
+                    width: settings.eye_size,
                     height: settings.eye_size,
                     borderRadius: settings.eye_size / 2,
                     borderWidth: 1,
@@ -65,11 +67,11 @@
                     borderColor: '#000',
                     backgroundColor: '#fff',
                     display: 'block',
-                    marginRight: 2,
                     position: 'relative',
                     overflow: 'hidden',
                     float: 'left'
                 });
+                $(eyes).find(".googlyeyes_eye.first").css({ marginRight: settings.spacing });
                 $(eyes).find(".googlyeyes_iris").css({ width: settings.iris_size,
                     height: settings.iris_size,
                     borderRadius: settings.iris_size / 2,
